@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celebrate Festival — Original Design (Static Preview)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      opacity: 0.9;
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.8) 50%, #ffffff);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 32px;
+      padding-left: 16px;
+      padding-right: 16px;
+      text-align: center;
+    }
+
+    /* Logo */
+    .logo-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 100%;
+      border: 6px solid #1a365d;
+      padding: 20px 48px;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .logo-badge::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 100%;
+      border: 1px solid rgba(185,28,34,0.2);
+    }
+
+    .logo-cloud {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 4px;
+    }
+
+    .logo-title {
+      font-size: 36px;
+      font-weight: 900;
+      color: #1a365d;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .logo-title .inc {
+      color: #b91c22;
+      font-size: 18px;
+      vertical-align: super;
+      font-weight: 700;
+    }
+
+    .logo-subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #4b5563;
+      margin-top: 4px;
+    }
+
+    /* Hero Titles */
+    .hero-from {
+      font-size: 22px;
+      font-weight: 700;
+      color: #4b5563;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .hero-grand {
+      font-size: 72px;
+      font-weight: 900;
+      color: #b91c22;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      line-height: 1;
+    }
+
+    .hero-support-line {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-line {
+      height: 4px;
+      width: 48px;
+      background: #1a365d;
+    }
+
+    .hero-support-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a365d;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ===== INTRO ===== */
+    .intro {
+      padding: 40px 64px;
+      text-align: center;
+      max-width: 768px;
+      margin: 0 auto;
+      background: white;
+      position: relative;
+      z-index: 10;
+    }
+
+    .intro-lead {
+      font-size: 22px;
+      color: #1a365d;
+      font-weight: 500;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .intro-body {
+      font-size: 18px;
+      color: #4b5563;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .intro-body strong {
+      color: #b91c22;
+      font-weight: 700;
+    }
+
+    .intro-pill {
+      display: inline-block;
+      background: #f3f4f6;
+      border-radius: 50px;
+      padding: 8px 24px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .intro-pill p {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a365d;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding: 32px 64px;
+    }
+
+    /* Dotted line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 104px;
+      top: 32px;
+      bottom: 32px;
+      width: 3px;
+      border-left: 3px dashed #d1d5db;
+      z-index: 0;
+    }
+
+    .timeline-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* Step Row */
+    .step-row {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+    }
+
+    /* Left pill area */
+    .step-pill-area {
+      width: 540px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .step-bg {
+      position: absolute;
+      inset: 0;
+      left: 40px;
+      border-radius: 0 16px 16px 0;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+
+    .step-bg-navy { background: #1a365d; }
+    .step-bg-red  { background: #b91c22; }
+
+    .slant-left  { transform: skewX(-6deg); transform-origin: bottom; }
+    .slant-right { transform: skewX(6deg);  transform-origin: bottom; }
+
+    .step-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    /* Circle icon */
+    .step-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 5px solid #f3f4f6;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 20;
+    }
+
+    .step-circle svg {
+      width: 40px;
+      height: 40px;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .icon-navy { stroke: #1a365d; }
+    .icon-red  { stroke: #b91c22; }
+
+    .step-text {
+      margin-left: 24px;
+      color: #ffffff;
+      padding-right: 40px;
+    }
+
+    .step-text h3 {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .step-text .subtitle {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      opacity: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .step-text .desc {
+      font-size: 14px;
+      opacity: 0.9;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    /* Step image */
+    .step-image-wrapper {
+      width: 260px;
+      height: 180px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .step-image-frame {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+      padding: 8px;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+
+    .step-image-inner {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .step-image-inner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform-origin: center;
+    }
+
+    .img-unskew-left  { transform: skewX(6deg) scale(1.2); }
+    .img-unskew-right { transform: skewX(-6deg) scale(1.2); }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      margin: 64px;
+      background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      border: 1px solid #e5e7eb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 128px;
+      height: 128px;
+      background: #1a365d;
+      opacity: 0.05;
+      border-radius: 0 0 100% 0;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 128px;
+      height: 128px;
+      background: #b91c22;
+      opacity: 0.05;
+      border-radius: 100% 0 0 0;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 10;
+    }
+
+    .cta-inner h2 {
+      font-size: 36px;
+      font-weight: 900;
+      color: #1a365d;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .cta-inner p {
+      font-size: 18px;
+      color: #4b5563;
+      margin-bottom: 32px;
+      max-width: 512px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #b91c22;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: #991b1b;
+      transform: translateY(-2px);
+    }
+
+    .cta-phone {
+      margin-top: 24px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .cta-phone a {
+      color: #1a365d;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    /* ===== TESTIMONIAL ===== */
+    .testimonial {
+      padding: 64px;
+      background: #ffffff;
+      text-align: center;
+      border-top: 1px solid #f3f4f6;
+    }
+
+    .testimonial-inner {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+
+    .testimonial-quote-mark {
+      color: #b91c22;
+      font-size: 72px;
+      font-family: Georgia, serif;
+      line-height: 1;
+      height: 48px;
+      opacity: 0.8;
+    }
+
+    .testimonial-text {
+      font-size: 28px;
+      color: #1a365d;
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #e5e7eb;
+    }
+
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-author-info {
+      text-align: left;
+    }
+
+    .testimonial-author-info .name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.3;
+    }
+
+    .testimonial-author-info .role {
+      font-size: 14px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar-wrapper {
+      padding: 0 64px 48px;
+      background: #ffffff;
+    }
+
+    .trust-bar {
+      background: #1a365d;
+      color: #ffffff;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trust-item svg {
+      width: 24px;
+      height: 24px;
+      stroke: #b91c22;
+      fill: none;
+      stroke-width: 2.5;
+    }
+
+    .trust-item span {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+    }
+
+    .trust-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 48px 32px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      opacity: 0.8;
+    }
+
+    .footer-logo svg {
+      width: 24px;
+      height: 24px;
+      stroke: #ffffff;
+      fill: none;
+    }
+
+    .footer-logo span {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-logo .inc { color: #b91c22; }
+
+    .footer-equip {
+      font-size: 11px;
+      color: #d1d5db;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .footer-address {
+      margin-bottom: 32px;
+      color: #9ca3af;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1f2937;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .social-link:hover {
+      background: #b91c22;
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      stroke: #9ca3af;
+      fill: none;
+    }
+
+    .social-link:hover svg {
+      stroke: #ffffff;
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid #1f2937;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    .footer-bottom a {
+      color: #9ca3af;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: #ffffff;
+    }
+
+    .footer-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #4b5563;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grand { font-size: 48px; }
+      .hero-support-text { font-size: 14px; }
+      .hero-line { width: 32px; }
+      .intro { padding: 32px; }
+      .intro-lead { font-size: 18px; }
+      .intro-body { font-size: 16px; }
+      .timeline { padding: 32px; }
+      .timeline::before { left: 72px; }
+      .step-pill-area { width: 100%; }
+      .step-image-wrapper { display: none; }
+      .step-text h3 { font-size: 22px; }
+      .cta-section { margin: 32px; padding: 32px; }
+      .cta-inner h2 { font-size: 26px; }
+      .testimonial { padding: 32px; }
+      .testimonial-text { font-size: 22px; }
+      .trust-bar-wrapper { padding: 0 32px 32px; }
+      .trust-bar { flex-direction: column; gap: 16px; padding: 24px; }
+      .trust-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===== HERO ===== -->
+    <div class="hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=1920" alt="Restaurant Kitchen" />
+        <div class="hero-gradient"></div>
+      </div>
+      <div class="hero-content">
+        <!-- Logo Badge -->
+        <div class="logo-badge">
+          <svg class="logo-cloud" viewBox="0 0 24 24" fill="#1a365d" stroke="none">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+          </svg>
+          <div class="logo-title">Celebrate Festival<span class="inc">.inc</span></div>
+          <div class="logo-subtitle">RESTAURANT EQUIPMENT</div>
+        </div>
+
+        <div class="hero-from">From design to</div>
+        <div class="hero-grand">Grand Opening</div>
+        <div class="hero-support-line">
+          <div class="hero-line"></div>
+          <div class="hero-support-text">We support every step</div>
+          <div class="hero-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== INTRO ===== -->
+    <div class="intro">
+      <p class="intro-lead">
+        Opening a restaurant is one of the most exciting things you'll ever do — and one of the most complex.
+      </p>
+      <p class="intro-body">
+        From planning your kitchen layout to passing your final health inspection, there are dozens of moving parts. Most equipment suppliers just ship you a box. <strong>We do everything else too.</strong>
+      </p>
+      <div class="intro-pill">
+        <p>Here's how we get you from blueprint to grand opening:</p>
+      </div>
+    </div>
+
+    <!-- ===== TIMELINE ===== -->
+    <div class="timeline">
+      <div class="timeline-steps">
+
+        <!-- STEP 6 -->
+        <div class="step-row">
+          <div class="step-pill-area">
+            <div class="step-bg step-bg-red slant-left"></div>
+            <div class="step-content">
+              <div class="step-circle">
+                <svg viewBox="0 0 24 24" class="icon-red"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="step-text">
+                <h3>GRAND OPENING</h3>
+                <div class="subtitle">YOU'RE READY TO SERVE</div>
+                <div class="desc">Your kitchen is built, inspected, and ready. All that's left is welcoming your first customers. We'll be there if you need us after, too.</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-image-wrapper">
+            <div class="step-image-frame slant-left">
+              <div class="step-image-inner">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=800" alt="Grand Opening" class="img-unskew-left" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="step-row">
+          <div class="step-pill-area">
+            <div class="step-bg step-bg-navy slant-right"></div>
+            <div class="step-content">
+              <div class="step-circle">
+                <svg viewBox="0 0 24 24" class="icon-navy"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </div>
+              <div class="step-text">
+                <h3>FINAL INSPECTION</h3>
+                <div class="subtitle">& COMPLIANCE</div>
+                <div class="desc">We ensure everything meets code. Health department inspection, fire safety, ADA compliance — all checked before you open your doors.</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-image-wrapper">
+            <div class="step-image-frame slant-right">
+              <div class="step-image-inner">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Inspection" class="img-unskew-right" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step-row">
+          <div class="step-pill-area">
+            <div class="step-bg step-bg-navy slant-left"></div>
+            <div class="step-content">
+              <div class="step-circle">
+                <svg viewBox="0 0 24 24" class="icon-navy"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="step-text">
+                <h3>INSTALLATION</h3>
+                <div class="subtitle">& SETUP</div>
+                <div class="desc">Professional installation and connections — gas, electric, plumbing, ventilation. Your kitchen is set up right the first time.</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-image-wrapper">
+            <div class="step-image-frame slant-left">
+              <div class="step-image-inner">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800" alt="Installation" class="img-unskew-left" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-row">
+          <div class="step-pill-area">
+            <div class="step-bg step-bg-red slant-right"></div>
+            <div class="step-content">
+              <div class="step-circle">
+                <svg viewBox="0 0 24 24" class="icon-red"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <div class="step-text">
+                <h3>EQUIPMENT DELIVERY</h3>
+                <div class="subtitle">ON SCHEDULE</div>
+                <div class="desc">Your equipment arrives on schedule — coordinated with your contractors and build timeline. No surprise delays, no storage headaches.</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-image-wrapper">
+            <div class="step-image-frame slant-right">
+              <div class="step-image-inner">
+                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" alt="Equipment Delivery" class="img-unskew-right" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-row">
+          <div class="step-pill-area">
+            <div class="step-bg step-bg-navy slant-left"></div>
+            <div class="step-content">
+              <div class="step-circle">
+                <svg viewBox="0 0 24 24" class="icon-navy"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </div>
+              <div class="step-text">
+                <h3>PERMITS</h3>
+                <div class="subtitle">& APPROVALS</div>
+                <div class="desc">Navigate city and health department requirements with confidence. We guide you through the approvals process so nothing delays your timeline.</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-image-wrapper">
+            <div class="step-image-frame slant-left">
+              <div class="step-image-inner">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800" alt="Permits" class="img-unskew-left" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="step-row">
+          <div class="step-pill-area">
+            <div class="step-bg step-bg-navy slant-right"></div>
+            <div class="step-content">
+              <div class="step-circle">
+                <svg viewBox="0 0 24 24" class="icon-navy"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              </div>
+              <div class="step-text">
+                <h3>DESIGN</h3>
+                <div class="subtitle">& PLANNING</div>
+                <div class="desc">We help you design the optimal kitchen layout, plan workflow efficiency, and select the right equipment for your cuisine and capacity. No guesswork.</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-image-wrapper">
+            <div class="step-image-frame slant-right">
+              <div class="step-image-inner">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800" alt="Design" class="img-unskew-right" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="cta-section">
+      <div class="cta-inner">
+        <h2>Ready to start planning your restaurant?</h2>
+        <p>Talk to our team — no obligation, no pressure. Just expert advice to get your kitchen running smoothly.</p>
+        <a href="#" class="cta-btn">Schedule a Free Consultation</a>
+        <p class="cta-phone">or call us: <a href="tel:5555555555">(555) 555-5555</a></p>
+      </div>
+    </div>
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <div class="testimonial">
+      <div class="testimonial-inner">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">
+          Celebrate Festival handled everything from design to our opening day. We couldn't have done it without them.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&q=80&w=150" alt="Sarah Jenkins" />
+          </div>
+          <div class="testimonial-author-info">
+            <div class="name">Sarah Jenkins</div>
+            <div class="role">Restaurant Owner, Chicago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TRUST BAR ===== -->
+    <div class="trust-bar-wrapper">
+      <div class="trust-bar">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Quality Service</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>On Time Delivery</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Expert Support</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+          <span>Complete Solutions</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-logo">
+        <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+        <span>Celebrate Festival<span class="inc">.inc</span></span>
+      </div>
+      <div class="footer-equip">Restaurant Equipment</div>
+      <div class="footer-address">123 Culinary Way, Suite 100, Food City, FC 12345 | www.celebratefestival.com</div>
+
+      <div class="footer-socials">
+        <a href="#" class="social-link"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" class="social-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="social-link"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Celebrate Festival Inc. All rights reserved.</p>
+        <div class="footer-dot"></div>
+        <p>
+          <a href="#">Unsubscribe</a>
+          <span style="margin: 0 8px; color: #4b5563;">|</span>
+          <a href="#">View in browser</a>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
