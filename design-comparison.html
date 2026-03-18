@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design vs Klaviyo Email — Comparison | Celebrate Festival</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    .comparison-header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-bottom: 1px solid #334155;
+    }
+
+    .comparison-header h1 {
+      font-size: 36px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .comparison-header h1 span { color: #b91c22; }
+
+    .comparison-header p {
+      font-size: 16px;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .badge-original {
+      background: rgba(26, 54, 93, 0.3);
+      border: 1px solid #1a365d;
+      color: #93c5fd;
+    }
+
+    .badge-klaviyo {
+      background: rgba(185, 28, 34, 0.2);
+      border: 1px solid #b91c22;
+      color: #fca5a5;
+    }
+
+    /* ===== COMPARISON LAYOUT ===== */
+    .comparison-container {
+      display: flex;
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: calc(100vh - 200px);
+    }
+
+    .panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .panel-header {
+      padding: 20px 24px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .panel-left .panel-header {
+      background: #1a365d;
+      color: #ffffff;
+    }
+
+    .panel-right .panel-header {
+      background: #b91c22;
+      color: #ffffff;
+    }
+
+    .divider {
+      width: 3px;
+      background: linear-gradient(to bottom, #1a365d, #b91c22);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .divider::after {
+      content: "VS";
+      position: sticky;
+      top: 50%;
+      display: block;
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
+      text-align: center;
+      background: #0f172a;
+      border: 2px solid #475569;
+      border-radius: 50%;
+      color: #e2e8f0;
+      font-weight: 900;
+      font-size: 13px;
+      margin-left: -20px;
+    }
+
+    .panel-content {
+      flex: 1;
+      background: #1e293b;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .panel-left .panel-content {
+      background: #1e293b;
+    }
+
+    .panel-right .panel-content {
+      background: #1a1a2e;
+    }
+
+    .panel-content iframe {
+      width: 100%;
+      max-width: 650px;
+      height: 3200px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      background: #ffffff;
+    }
+
+    /* ===== NOTES SECTION ===== */
+    .notes-section {
+      background: #1e293b;
+      border-top: 1px solid #334155;
+      padding: 50px 20px;
+    }
+
+    .notes-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .notes-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 40px;
+      letter-spacing: -0.3px;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .note-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .note-card h3 {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .note-card h3 .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-kept { background: #22c55e; }
+    .dot-adapted { background: #f59e0b; }
+    .dot-added { background: #3b82f6; }
+
+    .note-card p {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .note-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .note-card li {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.7;
+      padding: 3px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .note-card li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #64748b;
+    }
+
+    /* ===== LEGEND ===== */
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .comparison-container {
+        flex-direction: column;
+      }
+
+      .divider {
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #1a365d, #b91c22);
+      }
+
+      .divider::after {
+        margin-left: calc(50% - 22px);
+        margin-top: -22px;
+      }
+
+      .panel-content iframe {
+        max-width: 100%;
+      }
+
+      .comparison-header h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <div class="comparison-header">
+    <h1>Original Design <span>vs</span> Klaviyo Email</h1>
+    <p>
+      Side-by-side comparison showing the original web design (React/Tailwind) and the
+      Klaviyo-compatible HTML email adaptation. The emailer preserves the brand identity,
+      colors, content hierarchy, and visual flow while working across all major email clients.
+    </p>
+    <div class="badge-row">
+      <span class="badge badge-original">&#9664; Original Design — React + Tailwind</span>
+      <span class="badge badge-klaviyo">Klaviyo HTML Email &#9654;</span>
+    </div>
+  </div>
+
+  <!-- ===== SIDE-BY-SIDE ===== -->
+  <div class="comparison-container">
+    <div class="panel panel-left">
+      <div class="panel-header">Original Design (Web)</div>
+      <div class="panel-content">
+        <iframe src="index.html" title="Original Design"></iframe>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="panel panel-right">
+      <div class="panel-header">Klaviyo Email Template</div>
+      <div class="panel-content">
+        <iframe src="email-template-klaviyo.html" title="Klaviyo Email Template"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADAPTATION NOTES ===== -->
+  <div class="notes-section">
+    <div class="notes-container">
+      <h2 class="notes-title">Design Adaptation Notes</h2>
+
+      <div class="legend">
+        <div class="legend-item"><span class="legend-dot dot-kept"></span> Kept as-is</div>
+        <div class="legend-item"><span class="legend-dot dot-adapted"></span> Adapted for email</div>
+        <div class="legend-item"><span class="legend-dot dot-added"></span> Added for Klaviyo</div>
+      </div>
+
+      <div class="notes-grid">
+
+        <div class="note-card">
+          <h3><span class="dot dot-kept"></span> Brand Identity</h3>
+          <ul>
+            <li>Same color palette: Navy #1a365d &amp; Red #b91c22</li>
+            <li>Same celebrate-logo.png from repo</li>
+            <li>Same typography hierarchy &amp; weight</li>
+            <li>Same content — every word preserved</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <h3><span class="dot dot-adapted"></span> Layout &amp; Structure</h3>
+          <ul>
+            <li>Converted from div/flexbox to table-based layout</li>
+            <li>Max-width reduced from 900px to 600px (email standard)</li>
+            <li>Skewed/slanted CSS transforms replaced with straight rounded cards (email clients don't support transforms)</li>
+            <li>Step images moved to right column within table rows</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <h3><span class="dot dot-adapted"></span> Icons &amp; Graphics</h3>
+          <ul>
+            <li>Lucide React SVG icons replaced with PNG image icons</li>
+            <li>Social media icons converted to PNG images</li>
+            <li>Trust bar icons are now inline PNG with text</li>
+            <li>All images have proper alt text for accessibility</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <h3><span class="dot dot-adapted"></span> CSS &amp; Styling</h3>
+          <ul>
+            <li>Tailwind classes converted to inline CSS</li>
+            <li>CSS gradients preserved where possible with fallbacks</li>
+            <li>Hover effects removed (not supported in email)</li>
+            <li>Border-radius kept — supported in modern email clients</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <h3><span class="dot dot-adapted"></span> Responsiveness</h3>
+          <ul>
+            <li>Media queries at 620px breakpoint for mobile</li>
+            <li>Step images hidden on mobile (content preserved)</li>
+            <li>Trust bar stacks vertically on small screens</li>
+            <li>Font sizes adjust for mobile readability</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <h3><span class="dot dot-added"></span> Klaviyo Best Practices</h3>
+          <ul>
+            <li>Preheader text for inbox preview</li>
+            <li>Klaviyo unsubscribe tag: {% unsubscribe_url %}</li>
+            <li>View in browser tag: {% view_in_browser_url %}</li>
+            <li>Manage preferences tag: {% manage_preferences_url %}</li>
+            <li>VML fallback for Outlook background images</li>
+            <li>MSO conditional comments for Outlook rendering</li>
+            <li>role="presentation" on all tables</li>
+            <li>Apple Mail format-detection disabled</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <h3><span class="dot dot-adapted"></span> What Changed Visually</h3>
+          <ul>
+            <li>Skewed/angled step bars → straight rounded bars (CSS transforms unsupported in Outlook, Gmail)</li>
+            <li>Skewed images → straight rectangular rounded images</li>
+            <li>Dotted vertical timeline → dashed connectors between steps</li>
+            <li>Gradient overlays → simplified gradient with VML fallback</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <h3><span class="dot dot-added"></span> Production Checklist</h3>
+          <ul>
+            <li>Host all images on Klaviyo CDN or your domain</li>
+            <li>Replace placeholder social links with real URLs</li>
+            <li>Update consultation URL in CTA button</li>
+            <li>Update phone number</li>
+            <li>Test with Litmus / Email on Acid before sending</li>
+            <li>Set up A/B test for subject line in Klaviyo</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
