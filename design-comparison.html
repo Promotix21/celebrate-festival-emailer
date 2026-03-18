@@ -152,13 +152,21 @@
     }
 
     .panel-content iframe {
-      width: 100%;
-      max-width: 650px;
+      width: 900px;
+      min-width: 900px;
       height: 3200px;
       border: none;
       border-radius: 8px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
       background: #ffffff;
+      transform: scale(0.72);
+      transform-origin: top center;
+    }
+
+    .panel-right .panel-content iframe {
+      width: 650px;
+      min-width: 650px;
+      transform: scale(0.9);
     }
 
     /* ===== NOTES SECTION ===== */
@@ -288,7 +296,15 @@
       }
 
       .panel-content iframe {
-        max-width: 100%;
+        width: 900px;
+        min-width: 900px;
+        transform: scale(0.42);
+      }
+
+      .panel-right .panel-content iframe {
+        width: 650px;
+        min-width: 650px;
+        transform: scale(0.55);
       }
 
       .comparison-header h1 { font-size: 26px; }
